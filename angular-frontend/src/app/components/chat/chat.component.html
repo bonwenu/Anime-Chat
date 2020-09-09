@@ -1,0 +1,37 @@
+<div class="container">
+    <div #userFormArea id="userFormArea" class="row">
+        <div class="col-md-12">
+            <form *ngIf="!isHidden" #userForm id="userForm">
+                <div class="form-group">
+                    <label>Enter Username</label>
+                    <input #username class="form-control" id="username" />
+                    <br />
+                    <input (click)="submitUser()" class="btn btn-primary" value="Login" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div *ngIf="isHidden" #messageArea id="messageArea" class="row">
+        <div class="col-md-4">
+            <div class="well">
+                <h3>Online Users</h3>
+                <ul #users class="list-group" id="users"></ul>
+            </div>
+
+        </div>
+        <div class="col-md-8">
+            <div #chat class="chat" id="chat"></div>
+            <br><br>
+            <form  #messageForm id="messageForm">
+                <div class="form-group">
+                    <label><b>Enter Message</b></label>
+                    <textarea #message class="form-control" id="message"></textarea>
+                    <br />
+                    <input (click)="sendMessage()" class="btn btn-primary" value="Send Message" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
