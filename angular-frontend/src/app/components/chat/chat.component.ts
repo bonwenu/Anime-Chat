@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
 import io from 'socket.io-client';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -11,55 +12,103 @@ import io from 'socket.io-client';
 export class ChatComponent implements OnInit, AfterViewInit {
 
   socket: any;
-  isHidden: boolean = false;
-  @ViewChild('messageForm', {static: false}) messageForm: ElementRef;
-  @ViewChild('message', {static: false}) public message: ElementRef;
-  @ViewChild('chat', {static: false}) chat: ElementRef;
-  @ViewChild('messageArea', {static: false}) messageArea: ElementRef;
-  @ViewChild('userFormArea', {static: false}) userFormArea: ElementRef;
-  @ViewChild('userForm', {static: false}) userForm: ElementRef;
-  @ViewChild('users', {static: false}) users: ElementRef;
+  
+  @ViewChild('userList', {static: false}) userList: ElementRef;
+  @ViewChild('roomName', {static: false}) roomName: ElementRef;
   @ViewChild('username', {static: false}) username: ElementRef;
+  @ViewChild('chatForm', {static: false}) chatForm: ElementRef;
+  @ViewChild('msg', {static: false}) msg: ElementRef;
+  @ViewChild('chatMessages', {static: false}) chatMessages: ElementRef;
   
+  user: string;
+  room: string;
 
-  
-
-  constructor() { }
+  constructor(private renderer:Renderer2, private activatedRoute: ActivatedRoute) { 
+    // Get patams we saved from user login
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.user = params['username'];
+      this.room = params['room'];
+  });
+  }
 
   ngAfterViewInit() {
 
-    this.socket.on("new message", (data) => {
-      this.chat.nativeElement.innerHTML += ('<div class = "well"><strong>'+data.user+'</strong>: '+data.msg+'</div>');
+    // Join chat room
+    this.socket.emit('joinRoom', {username:this.user, room:this.room});
+
+    // Get room and users
+    this.socket.on('roomUsers', ({room, users}) => {
+      this.outputRoomName(room);
+      this.outputUsers(users);
     });
 
-  this.socket.on("get users", (data) => {
-      var html ="";
-      for(let i = 0; i < data.length; i++) {
-          html += '<li class ="list-group-item">'+data[i]+'</li>';
-      }
-      this.users.nativeElement.innerHTML = html;
-      
-  });
+    // Message from server
+    this.socket.on('message', (message) => {
+      console.log(message);
+      this.outputMessage(message);
 
+      // Scroll down
+      this.chatMessages.nativeElement.scrollTop = this.chatMessages.nativeElement.scrollHeight;
+    });
     
+    this.chatForm.nativeElement.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      // Get message text
+      let msg = this.msg.nativeElement.value;
+      msg = msg.trim();
+  
+      if (!msg){
+        return false;
+      }
+      // Emit message to server
+      this.socket.emit('chatMessage', msg);
+
+      // Clear input
+      this.msg.nativeElement.value ="";
+      this.msg.nativeElement.focus();
+    });
+  
   }
 
   ngOnInit() {
+    console.log("Username: " + this.user + " \nRoom: "+ this.room);
     this.socket =  io("http://localhost:5000");
   }
+  
+  // Output message to DOM
+  outputMessage(message) {
+    const div= this.renderer.createElement('div');
+    div.classList.add('message');
 
-  sendMessage() {
-    this.socket.emit("send message", this.message.nativeElement.value);
-    this.message.nativeElement.value ='';
+    const p= this.renderer.createElement('p');
+    p.classList.add('meta');
+    p.innerText = message.username;
+    p.innerHTML += `<span> ${message.time}</span>`;
+    div.appendChild(p);
+
+    const para= this.renderer.createElement('p');
+    div.classList.add('text');
+    para.innerText = message.text;
+    div.appendChild(para);
+    
+    this.chatMessages.nativeElement.appendChild(div);
   }
 
-  submitUser() {
-    this.socket.emit("new user", this.username.nativeElement.value, (data) => {
-      if(data) {
-          this.isHidden = true;
-      }
-  });
-  this.username.nativeElement.value='';
+  // Add room name to DOM
+  outputRoomName(room) {
+    this.roomName.nativeElement.innerText= room;
+  }
+
+  // Add users to DOM
+  outputUsers(users) {
+    this.userList.nativeElement.innerHTML = '';
+
+    users.forEach(user=>{
+      const li = this.renderer.createElement('li');
+      li.innerText = user.username;
+      this.userList.nativeElement.appendChild(li);
+    });
   }
 
 }

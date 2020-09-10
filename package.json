@@ -1,10 +1,10 @@
 {
-  "name": "anime-chat",
+  "name": "animecord",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ben Onwenu",
@@ -12,6 +12,7 @@
   "dependencies": {
     "-": "0.0.1",
     "express": "^4.17.1",
+    "moment": "^2.27.0",
     "nodemon": "^2.0.4",
     "socket.io": "^2.3.0"
   }

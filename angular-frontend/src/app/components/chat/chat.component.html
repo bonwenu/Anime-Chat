@@ -1,37 +1,21 @@
-<div class="container">
-    <div #userFormArea id="userFormArea" class="row">
-        <div class="col-md-12">
-            <form *ngIf="!isHidden" #userForm id="userForm">
-                <div class="form-group">
-                    <label>Enter Username</label>
-                    <input #username class="form-control" id="username" />
-                    <br />
-                    <input (click)="submitUser()" class="btn btn-primary" value="Login" />
-                </div>
-            </form>
-        </div>
+<div class="chat-container">
+    <header class="chat-header">
+      <h1><i class="fa fa-spinner"></i> AnimeCord</h1>
+      <a href="index.html" class="btn">Leave Room</a>
+    </header>
+    <main class="chat-main">
+      <div class="chat-sidebar">
+        <h3><i class="fas fa-comments"></i> Room Name:</h3>
+        <h2 id="room-name" #roomName></h2>
+        <h3><i class="fas fa-users"></i> Users</h3>
+        <ul id="users" #userList></ul>
+      </div>
+      <div #chatMessages class="chat-messages"></div>
+    </main>
+    <div class="chat-form-container">
+      <form #chatForm id="chat-form">
+        <input #msg id="msg" type="text" placeholder="Enter Message" required autocomplete="off"/>
+        <button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
+      </form>
     </div>
-
-
-    <div *ngIf="isHidden" #messageArea id="messageArea" class="row">
-        <div class="col-md-4">
-            <div class="well">
-                <h3>Online Users</h3>
-                <ul #users class="list-group" id="users"></ul>
-            </div>
-
-        </div>
-        <div class="col-md-8">
-            <div #chat class="chat" id="chat"></div>
-            <br><br>
-            <form  #messageForm id="messageForm">
-                <div class="form-group">
-                    <label><b>Enter Message</b></label>
-                    <textarea #message class="form-control" id="message"></textarea>
-                    <br />
-                    <input (click)="sendMessage()" class="btn btn-primary" value="Send Message" />
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+  </div>

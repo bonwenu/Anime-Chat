@@ -51,7 +51,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<router-outlet></router-outlet>";
+    __webpack_exports__["default"] = "<app-navbar></app-navbar>\r\n<div>\r\n    <router-outlet></router-outlet>\r\n</div>";
     /***/
   },
 
@@ -71,7 +71,67 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container\">\n    <div #userFormArea id=\"userFormArea\" class=\"row\">\n        <div class=\"col-md-12\">\n            <form *ngIf=\"!isHidden\" #userForm id=\"userForm\">\n                <div class=\"form-group\">\n                    <label>Enter Username</label>\n                    <input #username class=\"form-control\" id=\"username\" />\n                    <br />\n                    <input (click)=\"submitUser()\" class=\"btn btn-primary\" value=\"Login\" />\n                </div>\n            </form>\n        </div>\n    </div>\n\n\n    <div *ngIf=\"isHidden\" #messageArea id=\"messageArea\" class=\"row\">\n        <div class=\"col-md-4\">\n            <div class=\"well\">\n                <h3>Online Users</h3>\n                <ul #users class=\"list-group\" id=\"users\"></ul>\n            </div>\n\n        </div>\n        <div class=\"col-md-8\">\n            <div #chat class=\"chat\" id=\"chat\"></div>\n            <br><br>\n            <form  #messageForm id=\"messageForm\">\n                <div class=\"form-group\">\n                    <label><b>Enter Message</b></label>\n                    <textarea #message class=\"form-control\" id=\"message\"></textarea>\n                    <br />\n                    <input (click)=\"sendMessage()\" class=\"btn btn-primary\" value=\"Send Message\" />\n                </div>\n            </form>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"chat-container\">\n    <header class=\"chat-header\">\n      <h1><i class=\"fa fa-spinner\"></i> AnimeCord</h1>\n      <a href=\"index.html\" class=\"btn\">Leave Room</a>\n    </header>\n    <main class=\"chat-main\">\n      <div class=\"chat-sidebar\">\n        <h3><i class=\"fas fa-comments\"></i> Room Name:</h3>\n        <h2 id=\"room-name\" #roomName></h2>\n        <h3><i class=\"fas fa-users\"></i> Users</h3>\n        <ul id=\"users\" #userList></ul>\n      </div>\n      <div #chatMessages class=\"chat-messages\"></div>\n    </main>\n    <div class=\"chat-form-container\">\n      <form #chatForm id=\"chat-form\">\n        <input #msg id=\"msg\" type=\"text\" placeholder=\"Enter Message\" required autocomplete=\"off\"/>\n        <button class=\"btn\"><i class=\"fas fa-paper-plane\"></i> Send</button>\n      </form>\n    </div>\n  </div>";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/components/login/login.component.html":
+  /*!*********************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/login/login.component.html ***!
+    \*********************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppComponentsLoginLoginComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"join-container\">\n    <header class=\"join-header\">\n        <h1><i class=\"fa fa-spinner\"></i> ChatCord</h1>\n    </header>\n    <main class=\"join-main\">\n        <form (ngSubmit)=\"onSubmit()\" >\n            <div class=\"form-group\">\n                <label for=\"username\">Username</label>\n                <input [(ngModel)]= \"username\"\n                    type=\"text\"\n                    name=\"username\"\n                    id=\"username\"\n                    placeholder=\"Enter username...\"\n                    required\n                />\n            </div>\n            \n            \n                <div class=\"form-group\">\n                    <label for=\"room\">Room</label>\n                    <select (onSubmit)=\"onSubmit()\"  [(ngModel)]=\"selectedOption\" class=\"form-control\" name=\"selectedOption\" id=\"room\" required>\n                        <option value=\"JavaScript\">JavaScript</option>\n                        <option value=\"Python\">Python</option>\n                        <option value=\"PHP\">PHP</option>\n                        <option value=\"C#\">C#</option>\n                        <option value=\"Ruby\">Ruby</option>\n                        <option value=\"Java\">Java</option>\n                    </select>\n               </div>\n               \n            <button class=\"btn\">Join Chat</button>\n        </form>\n    </main>\n</div>";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/components/navbar/navbar.component.html":
+  /*!***********************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/navbar/navbar.component.html ***!
+    \***********************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppComponentsNavbarNavbarComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/components/profile/profile.component.html":
+  /*!*************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/profile/profile.component.html ***!
+    \*************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppComponentsProfileProfileComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<p>profile works!</p>\n";
     /***/
   },
 
@@ -728,6 +788,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _components_chat_chat_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ./components/chat/chat.component */
     "./src/app/components/chat/chat.component.ts");
+    /* harmony import */
+
+
+    var _components_login_login_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ./components/login/login.component */
+    "./src/app/components/login/login.component.ts");
 
     var routes = [{
       path: "",
@@ -735,6 +801,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       path: "chat",
       component: _components_chat_chat_component__WEBPACK_IMPORTED_MODULE_4__["ChatComponent"]
+    }, {
+      path: "login",
+      component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"]
     }];
 
     var AppRoutingModule = function AppRoutingModule() {
@@ -764,7 +833,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhcHAuY29tcG9uZW50LmNzcyJ9 */";
     /***/
   },
 
@@ -858,31 +927,55 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _app_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _app_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ./app-routing.module */
     "./src/app/app-routing.module.ts");
     /* harmony import */
 
 
-    var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ./app.component */
     "./src/app/app.component.ts");
     /* harmony import */
 
 
-    var _components_chat_chat_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _components_chat_chat_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ./components/chat/chat.component */
     "./src/app/components/chat/chat.component.ts");
+    /* harmony import */
+
+
+    var _components_login_login_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ./components/login/login.component */
+    "./src/app/components/login/login.component.ts");
+    /* harmony import */
+
+
+    var _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ./components/profile/profile.component */
+    "./src/app/components/profile/profile.component.ts");
+    /* harmony import */
+
+
+    var _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! ./components/navbar/navbar.component */
+    "./src/app/components/navbar/navbar.component.ts");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
     };
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _components_chat_chat_component__WEBPACK_IMPORTED_MODULE_5__["ChatComponent"]],
-      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"], _components_chat_chat_component__WEBPACK_IMPORTED_MODULE_6__["ChatComponent"], _components_login_login_component__WEBPACK_IMPORTED_MODULE_7__["LoginComponent"], _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_8__["ProfileComponent"], _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_9__["NavbarComponent"]],
+      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"]],
       providers: [],
-      bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
+      bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
     })], AppModule);
     /***/
   },
@@ -903,7 +996,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\r\n        \r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvY2hhdC9jaGF0LmNvbXBvbmVudC5jc3MifQ== */";
+    __webpack_exports__["default"] = "\r\n        \r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjb21wb25lbnRzL2NoYXQvY2hhdC5jb21wb25lbnQuY3NzIn0= */";
     /***/
   },
 
@@ -948,84 +1041,150 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var socket_io_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_2__);
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
 
     var ChatComponent = /*#__PURE__*/function () {
-      function ChatComponent() {
+      function ChatComponent(renderer, activatedRoute) {
+        var _this = this;
+
         _classCallCheck(this, ChatComponent);
 
-        this.isHidden = false;
+        this.renderer = renderer;
+        this.activatedRoute = activatedRoute; // Get patams we saved from user login
+
+        this.activatedRoute.queryParams.subscribe(function (params) {
+          _this.user = params['username'];
+          _this.room = params['room'];
+        });
       }
 
       _createClass(ChatComponent, [{
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          var _this = this;
+          var _this2 = this;
 
-          this.socket.on("new message", function (data) {
-            _this.chat.nativeElement.innerHTML += '<div class = "well"><strong>' + data.user + '</strong>: ' + data.msg + '</div>';
+          // Join chat room
+          this.socket.emit('joinRoom', {
+            username: this.user,
+            room: this.room
+          }); // Get room and users
+
+          this.socket.on('roomUsers', function (_ref) {
+            var room = _ref.room,
+                users = _ref.users;
+
+            _this2.outputRoomName(room);
+
+            _this2.outputUsers(users);
+          }); // Message from server
+
+          this.socket.on('message', function (message) {
+            console.log(message);
+
+            _this2.outputMessage(message); // Scroll down
+
+
+            _this2.chatMessages.nativeElement.scrollTop = _this2.chatMessages.nativeElement.scrollHeight;
           });
-          this.socket.on("get users", function (data) {
-            var html = "";
+          this.chatForm.nativeElement.addEventListener('submit', function (event) {
+            event.preventDefault(); // Get message text
 
-            for (var i = 0; i < data.length; i++) {
-              html += '<li class ="list-group-item">' + data[i] + '</li>';
-            }
+            var msg = _this2.msg.nativeElement.value;
+            msg = msg.trim();
 
-            _this.users.nativeElement.innerHTML = html;
+            if (!msg) {
+              return false;
+            } // Emit message to server
+
+
+            _this2.socket.emit('chatMessage', msg); // Clear input
+
+
+            _this2.msg.nativeElement.value = "";
+
+            _this2.msg.nativeElement.focus();
           });
         }
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {
+          console.log("Username: " + this.user + " \nRoom: " + this.room);
           this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_2___default()("http://localhost:5000");
-        }
-      }, {
-        key: "sendMessage",
-        value: function sendMessage() {
-          this.socket.emit("send message", this.message.nativeElement.value);
-          this.message.nativeElement.value = '';
-        }
-      }, {
-        key: "submitUser",
-        value: function submitUser() {
-          var _this2 = this;
+        } // Output message to DOM
 
-          this.socket.emit("new user", this.username.nativeElement.value, function (data) {
-            if (data) {
-              _this2.isHidden = true;
-            }
+      }, {
+        key: "outputMessage",
+        value: function outputMessage(message) {
+          var div = this.renderer.createElement('div');
+          div.classList.add('message');
+          var p = this.renderer.createElement('p');
+          p.classList.add('meta');
+          p.innerText = message.username;
+          p.innerHTML += "<span> ".concat(message.time, "</span>");
+          div.appendChild(p);
+          var para = this.renderer.createElement('p');
+          div.classList.add('text');
+          para.innerText = message.text;
+          div.appendChild(para);
+          this.chatMessages.nativeElement.appendChild(div);
+        } // Add room name to DOM
+
+      }, {
+        key: "outputRoomName",
+        value: function outputRoomName(room) {
+          this.roomName.nativeElement.innerText = room;
+        } // Add users to DOM
+
+      }, {
+        key: "outputUsers",
+        value: function outputUsers(users) {
+          var _this3 = this;
+
+          this.userList.nativeElement.innerHTML = '';
+          users.forEach(function (user) {
+            var li = _this3.renderer.createElement('li');
+
+            li.innerText = user.username;
+
+            _this3.userList.nativeElement.appendChild(li);
           });
-          this.username.nativeElement.value = '';
         }
       }]);
 
       return ChatComponent;
     }();
 
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messageForm', {
+    ChatComponent.ctorParameters = function () {
+      return [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
+      }];
+    };
+
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('userList', {
       "static": false
-    })], ChatComponent.prototype, "messageForm", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('message', {
+    })], ChatComponent.prototype, "userList", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('roomName', {
       "static": false
-    })], ChatComponent.prototype, "message", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('chat', {
-      "static": false
-    })], ChatComponent.prototype, "chat", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('messageArea', {
-      "static": false
-    })], ChatComponent.prototype, "messageArea", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('userFormArea', {
-      "static": false
-    })], ChatComponent.prototype, "userFormArea", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('userForm', {
-      "static": false
-    })], ChatComponent.prototype, "userForm", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('users', {
-      "static": false
-    })], ChatComponent.prototype, "users", void 0);
+    })], ChatComponent.prototype, "roomName", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('username', {
       "static": false
     })], ChatComponent.prototype, "username", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('chatForm', {
+      "static": false
+    })], ChatComponent.prototype, "chatForm", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('msg', {
+      "static": false
+    })], ChatComponent.prototype, "msg", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('chatMessages', {
+      "static": false
+    })], ChatComponent.prototype, "chatMessages", void 0);
     ChatComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-chat',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
@@ -1035,6 +1194,261 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       /*! ./chat.component.css */
       "./src/app/components/chat/chat.component.css"))["default"]]
     })], ChatComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/components/login/login.component.css":
+  /*!******************************************************!*\
+    !*** ./src/app/components/login/login.component.css ***!
+    \******************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppComponentsLoginLoginComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjb21wb25lbnRzL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5jc3MifQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/components/login/login.component.ts":
+  /*!*****************************************************!*\
+    !*** ./src/app/components/login/login.component.ts ***!
+    \*****************************************************/
+
+  /*! exports provided: LoginComponent */
+
+  /***/
+  function srcAppComponentsLoginLoginComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "LoginComponent", function () {
+      return LoginComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+
+    var LoginComponent = /*#__PURE__*/function () {
+      function LoginComponent(router) {
+        _classCallCheck(this, LoginComponent);
+
+        this.router = router;
+      }
+
+      _createClass(LoginComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }, {
+        key: "onSubmit",
+        value: function onSubmit() {
+          this.router.navigate(['chat'], {
+            queryParams: {
+              username: this.username,
+              room: this.selectedOption
+            }
+          });
+        }
+      }]);
+
+      return LoginComponent;
+    }();
+
+    LoginComponent.ctorParameters = function () {
+      return [{
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+      }];
+    };
+
+    LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-login',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./login.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/components/login/login.component.html"))["default"],
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./login.component.css */
+      "./src/app/components/login/login.component.css"))["default"]]
+    })], LoginComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/components/navbar/navbar.component.css":
+  /*!********************************************************!*\
+    !*** ./src/app/components/navbar/navbar.component.css ***!
+    \********************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppComponentsNavbarNavbarComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = ".banner {\r\n    background: #fff;\r\n    font-family: Lato, sans-serif;\r\n  }\r\n  \r\n  .navbar-nav-primary {\r\n    text-transform: uppercase;\r\n  }\r\n  \r\n  .navbar-form-search {\r\n    position: relative;\r\n  }\r\n  \r\n  .navbar-form-search .form-control {\r\n    width: 250px;\r\n  }\r\n  \r\n  .navbar-form-search .btn {\r\n    border: 0;\r\n    background: transparent;\r\n    font-size: 18px;\r\n  }\r\n  \r\n  .navbar-form-search .btn:active, .navbar-form-search .btn:hover, .navbar-form-search .btn:focus {\r\n    color: #000;\r\n    outline: none;\r\n    box-shadow: none;\r\n  }\r\n  \r\n  .navbar-form-search .search-form-container {\r\n    text-align: right;\r\n    position: absolute;\r\n    width: 300px;\r\n    overflow: hidden;\r\n    background: #fff;\r\n    right: 60px;\r\n    top: 0;\r\n    z-index: 9;\r\n    transition: all .3s ease-in-out;\r\n  }\r\n  \r\n  .navbar-form-search .search-form-container.hdn {\r\n    width: 0;\r\n  }\r\n  \r\n  .navbar-form-search .search-form-container .search-input-group {\r\n    width: 300px;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvbmF2YmFyL25hdmJhci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksZ0JBQWdCO0lBQ2hCLDZCQUE2QjtFQUMvQjs7RUFFQTtJQUNFLHlCQUF5QjtFQUMzQjs7RUFFQTtJQUNFLGtCQUFrQjtFQUNwQjs7RUFDQTtJQUNFLFlBQVk7RUFDZDs7RUFDQTtJQUNFLFNBQVM7SUFDVCx1QkFBdUI7SUFDdkIsZUFBZTtFQUNqQjs7RUFDQTtJQUNFLFdBQVc7SUFDWCxhQUFhO0lBQ2IsZ0JBQWdCO0VBQ2xCOztFQUNBO0lBQ0UsaUJBQWlCO0lBQ2pCLGtCQUFrQjtJQUNsQixZQUFZO0lBQ1osZ0JBQWdCO0lBQ2hCLGdCQUFnQjtJQUNoQixXQUFXO0lBQ1gsTUFBTTtJQUNOLFVBQVU7SUFDViwrQkFBK0I7RUFDakM7O0VBQ0E7SUFDRSxRQUFRO0VBQ1Y7O0VBQ0E7SUFDRSxZQUFZO0VBQ2QiLCJmaWxlIjoiY29tcG9uZW50cy9uYXZiYXIvbmF2YmFyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYmFubmVyIHtcclxuICAgIGJhY2tncm91bmQ6ICNmZmY7XHJcbiAgICBmb250LWZhbWlseTogTGF0bywgc2Fucy1zZXJpZjtcclxuICB9XHJcbiAgXHJcbiAgLm5hdmJhci1uYXYtcHJpbWFyeSB7XHJcbiAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xyXG4gIH1cclxuICBcclxuICAubmF2YmFyLWZvcm0tc2VhcmNoIHtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICB9XHJcbiAgLm5hdmJhci1mb3JtLXNlYXJjaCAuZm9ybS1jb250cm9sIHtcclxuICAgIHdpZHRoOiAyNTBweDtcclxuICB9XHJcbiAgLm5hdmJhci1mb3JtLXNlYXJjaCAuYnRuIHtcclxuICAgIGJvcmRlcjogMDtcclxuICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50O1xyXG4gICAgZm9udC1zaXplOiAxOHB4O1xyXG4gIH1cclxuICAubmF2YmFyLWZvcm0tc2VhcmNoIC5idG46YWN0aXZlLCAubmF2YmFyLWZvcm0tc2VhcmNoIC5idG46aG92ZXIsIC5uYXZiYXItZm9ybS1zZWFyY2ggLmJ0bjpmb2N1cyB7XHJcbiAgICBjb2xvcjogIzAwMDtcclxuICAgIG91dGxpbmU6IG5vbmU7XHJcbiAgICBib3gtc2hhZG93OiBub25lO1xyXG4gIH1cclxuICAubmF2YmFyLWZvcm0tc2VhcmNoIC5zZWFyY2gtZm9ybS1jb250YWluZXIge1xyXG4gICAgdGV4dC1hbGlnbjogcmlnaHQ7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB3aWR0aDogMzAwcHg7XHJcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gICAgYmFja2dyb3VuZDogI2ZmZjtcclxuICAgIHJpZ2h0OiA2MHB4O1xyXG4gICAgdG9wOiAwO1xyXG4gICAgei1pbmRleDogOTtcclxuICAgIHRyYW5zaXRpb246IGFsbCAuM3MgZWFzZS1pbi1vdXQ7XHJcbiAgfVxyXG4gIC5uYXZiYXItZm9ybS1zZWFyY2ggLnNlYXJjaC1mb3JtLWNvbnRhaW5lci5oZG4ge1xyXG4gICAgd2lkdGg6IDA7XHJcbiAgfVxyXG4gIC5uYXZiYXItZm9ybS1zZWFyY2ggLnNlYXJjaC1mb3JtLWNvbnRhaW5lciAuc2VhcmNoLWlucHV0LWdyb3VwIHtcclxuICAgIHdpZHRoOiAzMDBweDtcclxuICB9Il19 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/components/navbar/navbar.component.ts":
+  /*!*******************************************************!*\
+    !*** ./src/app/components/navbar/navbar.component.ts ***!
+    \*******************************************************/
+
+  /*! exports provided: NavbarComponent */
+
+  /***/
+  function srcAppComponentsNavbarNavbarComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "NavbarComponent", function () {
+      return NavbarComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+
+    var NavbarComponent = /*#__PURE__*/function () {
+      function NavbarComponent() {
+        _classCallCheck(this, NavbarComponent);
+      }
+
+      _createClass(NavbarComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }]);
+
+      return NavbarComponent;
+    }();
+
+    NavbarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-navbar',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./navbar.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/components/navbar/navbar.component.html"))["default"],
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./navbar.component.css */
+      "./src/app/components/navbar/navbar.component.css"))["default"]]
+    })], NavbarComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/components/profile/profile.component.css":
+  /*!**********************************************************!*\
+    !*** ./src/app/components/profile/profile.component.css ***!
+    \**********************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppComponentsProfileProfileComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjb21wb25lbnRzL3Byb2ZpbGUvcHJvZmlsZS5jb21wb25lbnQuY3NzIn0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/components/profile/profile.component.ts":
+  /*!*********************************************************!*\
+    !*** ./src/app/components/profile/profile.component.ts ***!
+    \*********************************************************/
+
+  /*! exports provided: ProfileComponent */
+
+  /***/
+  function srcAppComponentsProfileProfileComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ProfileComponent", function () {
+      return ProfileComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+
+    var ProfileComponent = /*#__PURE__*/function () {
+      function ProfileComponent() {
+        _classCallCheck(this, ProfileComponent);
+      }
+
+      _createClass(ProfileComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }]);
+
+      return ProfileComponent;
+    }();
+
+    ProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-profile',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./profile.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/components/profile/profile.component.html"))["default"],
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./profile.component.css */
+      "./src/app/components/profile/profile.component.css"))["default"]]
+    })], ProfileComponent);
     /***/
   },
 
@@ -1147,7 +1561,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   /***/
   function _(module, exports, __webpack_require__) {
     module.exports = __webpack_require__(
-    /*! D:\Users\benja\Web projects\Anime-Chat\angular-frontend\src\main.ts */
+    /*! D:\Projects\AnimeCord\angular-frontend\src\main.ts */
     "./src/main.ts");
     /***/
   },
