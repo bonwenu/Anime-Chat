@@ -1,57 +1,62 @@
 package com.chat.projects.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.chat.projects.services.ApplicationUserDetailsService;
-
-import static com.chat.projects.security.SecurityConstants.SIGN_UP_URL;
+import com.chat.projects.util.JwtRequestFilter;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    private ApplicationUserDetailsService userDetailsService;
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-    public SecurityConfiguration(ApplicationUserDetailsService userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder) {
-        this.userDetailsService = userDetailsService;
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-    }
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable().authorizeRequests()
-                .antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .addFilter(new AuthenticationFilter(authenticationManager()))
-                .addFilter(new AuthorizationFilter(authenticationManager()))
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-    }
-    @Bean
-    CorsConfigurationSource corsConfigurationSource() {
-        final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
-        return source;
-    }
-    
-    
+	@Autowired
+    private ApplicationUserDetailsService appUserDetailsService;
+	@Autowired
+	private JwtRequestFilter jwtRequestFilter;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
+        auth.userDetailsService(appUserDetailsService).passwordEncoder(passwordEncoder);
     }
+    
+    @Override
+	protected void configure(HttpSecurity httpSecurity) throws Exception {
+		httpSecurity.csrf().disable()
+				// Allow for logging in
+				.authorizeRequests().antMatchers("/authenticate").permitAll()
+				.antMatchers("/users/register").permitAll()
+				// All other requests need to be authenticated
+				.anyRequest().authenticated().and()
+				// Make sure we use stateless session
+				.sessionManagement()
+				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-
+		// Add a filter to validate the tokens with every request
+		httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+	}
+    
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+    
+    @Override
+	@Bean
+	public AuthenticationManager authenticationManagerBean() throws Exception {
+		return super.authenticationManagerBean();
+	}
+ 
 }
