@@ -1,9 +1,9 @@
 <div class="join-container">
     <header class="join-header">
-        <h1><i class="fa fa-spinner"></i> ChatCord</h1>
+        <h1><i class="fa fa-spinner"></i> AnimeCord</h1>
     </header>
     <main class="join-main">
-        <form (ngSubmit)="onSubmit()" >
+        <form >
             <div class="form-group">
                 <label for="username">Username</label>
                 <input [(ngModel)]= "username"
@@ -14,21 +14,19 @@
                     required
                 />
             </div>
-            
-            
-                <div class="form-group">
-                    <label for="room">Room</label>
-                    <select (onSubmit)="onSubmit()"  [(ngModel)]="selectedOption" class="form-control" name="selectedOption" id="room" required>
-                        <option value="JavaScript">JavaScript</option>
-                        <option value="Python">Python</option>
-                        <option value="PHP">PHP</option>
-                        <option value="C#">C#</option>
-                        <option value="Ruby">Ruby</option>
-                        <option value="Java">Java</option>
-                    </select>
-               </div>
-               
-            <button class="btn">Join Chat</button>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input class="format" [(ngModel)]= "password"
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Enter password..."
+                    required
+                />
+            </div>
+            <p>Not a memeber?<a routerLink = '/register'> Register</a> here</p> 
+            <button (click)="checkLogin()" class="btn">Log In</button>
         </form>
     </main>
 </div>

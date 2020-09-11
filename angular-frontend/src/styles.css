@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 :root {
-	--dark-color-a: #667aff;
-	--dark-color-b: #7386ff;
-	--light-color: #e6e9ff;
+	--dark-color-a: #080808;
+	--dark-color-b: #7e7e7e60;
+	--light-color: #dbd9d9;
 	--success-color: #5cb85c;
 	--error-color: #d9534f;
 }
@@ -17,7 +17,7 @@
 body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
-	background: var(--light-color);
+	background-image: linear-gradient(50deg, rgb(136, 136, 136), white);
 	margin: 20px;
 }
 
@@ -36,6 +36,51 @@ a {
 	color: var(--dark-color-a);
 	border: 0;
 	font-size: 17px;
+}
+
+.c-btn-1 {
+	cursor: pointer;
+	padding: 5px 15px;
+	background: rgba(255, 255, 255, 0.164);
+	color: var(--dark-color-a);
+	border: 0;
+	font-size: 17px;
+	width: 3in;
+	margin-left: 0.7in;
+	margin-bottom: 20px;
+}
+.c-btn-2 {
+	cursor: pointer;
+	padding: 5px 15px;
+	background: rgba(252, 252, 252, 0.514);
+	color: var(--dark-color-a);
+	border: 0;
+	font-size: 17px;
+	width: 3in;
+	margin-left: 0.7in;
+	margin-bottom: 20px;
+}
+
+.c-btn-3 {
+	cursor: pointer;
+	padding: 5px 15px;
+	background: rgba(255, 255, 255, 0.726);
+	color: var(--dark-color-a);
+	border: 0;
+	font-size: 17px;
+	width: 3in;
+	margin-left: 0.7in;
+	margin-bottom: 20px;
+}
+.c-btn-4 {
+	cursor: pointer;
+	padding: 5px 15px;
+	background: rgb(255, 255, 255);
+	color: var(--dark-color-a);
+	border: 0;
+	font-size: 17px;
+	width: 3in;
+	margin-left: 0.7in;
 }
 
 /* Chat Page */
@@ -65,7 +110,7 @@ a {
 
 .chat-sidebar {
 	background: var(--dark-color-b);
-	color: #fff;
+	color: black;
 	padding: 20px 20px 60px;
 	overflow-y: scroll;
 }
@@ -99,16 +144,18 @@ a {
 	overflow-wrap: break-word;
 }
 
+/* username in chat */
 .chat-messages .message .meta {
 	font-size: 15px;
 	font-weight: bold;
-	color: var(--dark-color-b);
+	color: black;
 	opacity: 0.7;
 	margin-bottom: 7px;
 }
 
+/* time */
 .chat-messages .message .meta span {
-	color: #777;
+	color: blue;
 }
 
 .chat-form-container {
@@ -132,6 +179,7 @@ a {
 	max-width: 500px;
 	margin: 80px auto;
 	color: #fff;
+	margin-top: 20px;
 }
 
 .join-header {
@@ -187,4 +235,9 @@ a {
 	.chat-sidebar {
 		display: none;
 	}
+}
+
+input.format {
+	height: 40px;
+	width: 4.35in;
 }

@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.chat.projects.models.ApplicationUser;
 import com.chat.projects.models.AuthenticationRequest;
 import com.chat.projects.models.AuthenticationResponse;
+import com.chat.projects.models.Message;
 import com.chat.projects.services.ApplicationUserDetailsService;
 import com.chat.projects.util.JwtUtil;
 
 @RestController
 @CrossOrigin("*")
-
 public class AuthenticationController {
 	
 	@Autowired
@@ -37,7 +37,7 @@ public class AuthenticationController {
 				new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
 		}
 		catch(BadCredentialsException e) {
-			throw new Exception("Incorrect username or password", e);
+			return ResponseEntity.ok(new Message(false, "Incorrect credentials"));
 		}
 		
 		final UserDetails userDetails = appUserDetailsService
