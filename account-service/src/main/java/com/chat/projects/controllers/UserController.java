@@ -34,7 +34,7 @@ public class UserController {
         catch(Exception e) {
         	System.out.println(e);
         }
-        return new Message(isValid, "This username or email already is attached to an account.");
+        return new Message(isValid, "This username or email already exists.");
     }
 	
 	@GetMapping("/{username}")
@@ -45,9 +45,11 @@ public class UserController {
 	@PutMapping("/{username}")
 	public ApplicationUser updateApplicationUser(@RequestBody ApplicationUser user) {
 		ApplicationUser appUser = appUsertDetailsService.getAccountByUsername(user.getUsername());
+		
 		// If user is found and old password matches, save new one
 		if(appUser != null && bCryptPasswordEncoder.matches(user.getPassword(), appUser.getPassword())) {
 			appUser.setPassword(bCryptPasswordEncoder.encode(user.getNewPassword()));
+			// Password change was successful
 			return appUsertDetailsService.updateApplicationUser(appUser);
 		}
 		return null;

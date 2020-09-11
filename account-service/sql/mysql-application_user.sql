@@ -1,5 +1,6 @@
-drop table application_user;
-use chat_application_user;
+create schema ac_account;
+use ac_account;
+drop table if exists application_user;
 
 create table application_user (
        id bigint not null auto_increment,

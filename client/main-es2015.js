@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"chat-container\">\n    <header class=\"chat-header\">\n      <h1><i class=\"fa fa-spinner\"></i> AnimeCord</h1>\n      <a (click)=\"leaveRoom()\" class=\"btn\">Leave Room</a>\n    </header>\n    <main class=\"chat-main\">\n      <div class=\"chat-sidebar\">\n        <h3><i class=\"fas fa-comments\"></i> Room Name:</h3>\n        <h2 id=\"room-name\" #roomName></h2>\n        <h3><i class=\"fas fa-users\"></i> Users</h3>\n        <ul id=\"users\" #userList></ul>\n      </div>\n      <div #chatMessages class=\"chat-messages\"></div>\n    </main>\n    <div class=\"chat-form-container\">\n      <form #chatForm id=\"chat-form\">\n        <input #msg id=\"msg\" type=\"text\" placeholder=\"Enter Message\" required autocomplete=\"off\"/>\n        <button class=\"btn\"><i class=\"fas fa-paper-plane\"></i> Send</button>\n      </form>\n    </div>\n  </div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"chat-container\">\r\n    <header class=\"chat-header\">\r\n      <h1><i class=\"fa fa-spinner\"></i> AnimeCord</h1>\r\n      <a (click)=\"leaveRoom()\" class=\"btn\">Leave Room</a>\r\n    </header>\r\n    <main class=\"chat-main\">\r\n      <div class=\"chat-sidebar\">\r\n        <h3><i class=\"fas fa-comments\"></i> Room Name:</h3>\r\n        <h2 id=\"room-name\" #roomName></h2>\r\n        <h3><i class=\"fas fa-users\"></i> Users</h3>\r\n        <ul id=\"users\" #userList></ul>\r\n      </div>\r\n      <div #chatMessages class=\"chat-messages\"></div>\r\n    </main>\r\n    <div class=\"chat-form-container\">\r\n      <form #chatForm id=\"chat-form\">\r\n        <input #msg id=\"msg\" type=\"text\" placeholder=\"Enter Message\" required autocomplete=\"off\"/>\r\n        <button class=\"btn\"><i class=\"fas fa-paper-plane\"></i> Send</button>\r\n      </form>\r\n    </div>\r\n  </div>");
 
 /***/ }),
 
@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"join-container\">\n    <header class=\"join-header\">\n        <h1><i class=\"fa fa-spinner\"></i> AnimeCord</h1>\n    </header>\n    <main class=\"join-main\">\n        \n               \n            <button (click)= \"goToChat('Naruto')\" class=\"c-btn-1\">Naruto</button> <br>\n            <button (click)= \"goToChat('One Piece')\" class=\"c-btn-2\">One Piece</button> <br>\n            <button (click)= \"goToChat('My Hero Academia')\" class=\"c-btn-3\">My Hero Academia</button> <br>\n            <button (click)= \"goToChat('Bleach')\" class=\"c-btn-4\">Bleach</button> <br>\n        \n    </main>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"join-container\">\r\n    <header class=\"join-header\">\r\n        <h1><i class=\"fa fa-spinner\"></i> AnimeCord</h1>\r\n    </header>\r\n    <main class=\"join-main\">\r\n        \r\n               \r\n            <button (click)= \"goToChat('Naruto')\" class=\"c-btn-1\">Naruto</button> <br>\r\n            <button (click)= \"goToChat('One Piece')\" class=\"c-btn-2\">One Piece</button> <br>\r\n            <button (click)= \"goToChat('My Hero Academia')\" class=\"c-btn-3\">My Hero Academia</button> <br>\r\n            <button (click)= \"goToChat('Bleach')\" class=\"c-btn-4\">Bleach</button> <br>\r\n        \r\n    </main>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"join-container\">\n    <header class=\"join-header\">\n        <h1><i class=\"fa fa-spinner\"></i> AnimeCord</h1>\n    </header>\n    <main class=\"join-main\">\n        <form >\n            <div class=\"form-group\">\n                <label for=\"username\">Username</label>\n                <input [(ngModel)]= \"username\"\n                    type=\"text\"\n                    name=\"username\"\n                    id=\"username\"\n                    placeholder=\"Enter username...\"\n                    required\n                />\n            </div>\n\n            <div class=\"form-group\">\n                <label for=\"password\">Password</label>\n                <input class=\"format\" [(ngModel)]= \"password\"\n                    type=\"password\"\n                    name=\"password\"\n                    id=\"password\"\n                    placeholder=\"Enter password...\"\n                    required\n                />\n            </div>\n            <p>Not a memeber?<a routerLink = '/register'> Register</a> here</p> \n            <button (click)=\"checkLogin()\" class=\"btn\">Log In</button>\n        </form>\n    </main>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"join-container\">\r\n    <header class=\"join-header\">\r\n        <h1><i class=\"fa fa-spinner\"></i> AnimeCord</h1>\r\n    </header>\r\n    <main class=\"join-main\">\r\n        <form >\r\n            <div class=\"form-group\">\r\n                <label for=\"username\">Username</label>\r\n                <input [(ngModel)]= \"username\"\r\n                    type=\"text\"\r\n                    name=\"username\"\r\n                    id=\"username\"\r\n                    placeholder=\"Enter username...\"\r\n                    required\r\n                />\r\n            </div>\r\n\r\n            <div class=\"form-group\">\r\n                <label for=\"password\">Password</label>\r\n                <input class=\"format\" [(ngModel)]= \"password\"\r\n                    type=\"password\"\r\n                    name=\"password\"\r\n                    id=\"password\"\r\n                    placeholder=\"Enter password...\"\r\n                    required\r\n                />\r\n            </div>\r\n            <p>Not a memeber?<a routerLink = '/register'> Register</a> here</p> \r\n            <button (click)=\"checkLogin()\" class=\"btn\">Log In</button>\r\n        </form>\r\n    </main>\r\n</div>");
 
 /***/ }),
 
@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n  <nav class=\"navbar navbar-expand-lg navbar navbar-dark bg-dark\">\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo01\" aria-controls=\"navbarTogglerDemo01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarTogglerDemo01\">\n      <h1 style=\"margin-top: 5px; color: white; font-size: 20px; padding-right: 20px;\"><i class=\"fa fa-spinner\"></i> AnimeCord</h1>\n      <ul class=\"navbar-nav mr-auto mt-2 mt-lg-0\">\n        <li class=\"nav-item active\">\n          <a routerLink=\"/login\" class=\"nav-link\">Home</a>\n        </li>\n        <li class= \"nav-item active\">\n          <a *ngIf=\"authorizor.loggedIn()\" routerLink=\"/profile\" class=\"nav-link\">Profile</a>\n        </li>\n      </ul>\n      <form class=\"form-inline my-2 my-lg-0\">\n        <!-- <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\"> \n        <button class=\"btn btn-outline-success my-2 my-sm-0\"  *ngIf=\"!authorizor.loggedIn()\" routerLink=\"/login\" >Log In</button>\n        -->\n        <button class=\"btn btn-outline-warning my-2 my-sm-0\"  *ngIf=\"authorizor.loggedIn()\" (click)=\"logout()\" >Log Out</button>\n      </form>\n    </div>\n  </nav>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n  <nav class=\"navbar navbar-expand-lg navbar navbar-dark bg-dark\">\r\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo01\" aria-controls=\"navbarTogglerDemo01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n      <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n    <div class=\"collapse navbar-collapse\" id=\"navbarTogglerDemo01\">\r\n      <h1 style=\"margin-top: 5px; color: white; font-size: 20px; padding-right: 20px;\"><i class=\"fa fa-spinner\"></i> AnimeCord</h1>\r\n      <ul class=\"navbar-nav mr-auto mt-2 mt-lg-0\">\r\n        <li class=\"nav-item active\">\r\n          <a routerLink=\"/login\" class=\"nav-link\">Home</a>\r\n        </li>\r\n        <li class= \"nav-item active\">\r\n          <a *ngIf=\"authorizor.loggedIn()\" routerLink=\"/profile\" class=\"nav-link\">Profile</a>\r\n        </li>\r\n      </ul>\r\n      <form class=\"form-inline my-2 my-lg-0\">\r\n        <!-- <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\"> \r\n        <button class=\"btn btn-outline-success my-2 my-sm-0\"  *ngIf=\"!authorizor.loggedIn()\" routerLink=\"/login\" >Log In</button>\r\n        -->\r\n        <button class=\"btn btn-outline-warning my-2 my-sm-0\"  *ngIf=\"authorizor.loggedIn()\" (click)=\"logout()\" >Log Out</button>\r\n      </form>\r\n    </div>\r\n  </nav>\r\n\r\n");
 
 /***/ }),
 
@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>profile works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"join-container\">\n    <header class=\"join-header\">\n        <h1><i class=\"fa fa-spinner\"></i> AnimeCord</h1>\n        <h3>{{profileData?.username}}</h3>\n    </header>\n    <main class=\"join-main\">\n        <div class=\"container profile\">\n            <img class=\"profile\" src=\"../../../assets/profile.gif\"> <br><br> \n            <h4><i class=\"fas fa-envelope email\"></i>{{profileData?.email}}</h4>\n        </div>\n    <!--   <form >\n            <div class=\"form-group\">\n                <label for=\"username\">Username</label>\n                <input [(ngModel)]= \"username\"\n                    type=\"text\"\n                    name=\"username\"\n                    id=\"username\"\n                    placeholder=\"Enter username...\"\n                    required\n                />\n            </div>\n\n            <div class=\"form-group\">\n                <label for=\"password\">Password</label>\n                <input class=\"format\" [(ngModel)]= \"password\"\n                    type=\"password\"\n                    name=\"password\"\n                    id=\"password\"\n                    placeholder=\"Enter password...\"\n                    required\n                />\n            </div> \n            \n        </form> --> \n        <button *ngIf=\"!editActive\"  (click)= \"edit()\" class=\"btn\">Change password</button> \n        <div *ngIf='editActive'>\n        <label>Old Password</label>\n            <input class=\"format\" [(ngModel)]= \"currentPassword\"\n                    type=\"password\"\n                    name=\"currentPassword\"\n                    id=\"currentPassword\"\n                    placeholder=\"Enter current password...\"\n                    required\n                />\n            <label>New Password</label>\n            <input class=\"format\" [(ngModel)]= \"newPassword\"\n            type=\"password\"\n            name=\"newPassword\"\n            id=\"newPassword\"\n            placeholder=\"Enter new password...\"\n            required\n        />\n        <button style = \"margin-right: 0.7in;\" (click)=cancel() class=\"btn btn-danger\">Cancel</button> \n                <button (click)=applyChanges() class=\"btn btn-primary\">Apply</button> \n            </div>\n    </main>\n</div>");
 
 /***/ }),
 
@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"join-container\">\n    <header class=\"join-header\">\n        <h1><i class=\"fa fa-spinner\"></i> AnimeCord</h1>\n        <h3>Register</h3>\n    </header>\n    <main class=\"join-main\">\n        <form  >\n            <div class=\"form-group\">\n                <label for=\"username\">Username</label>\n                <input [(ngModel)]= \"username\"\n                    type=\"text\"\n                    name=\"username\"\n                    id=\"username\"\n                    placeholder=\"Enter username...\"\n                    required\n                />\n            </div>\n            \n            <div class=\"form-group\">\n                <label for=\"password\">Password</label>\n                <input class=\"format\" [(ngModel)]= \"password\"\n                    type=\"password\"\n                    name=\"password\"\n                    id=\"password\"\n                    placeholder=\"Enter password...\"\n                    required\n                />\n            </div>\n\n            <div class=\"form-group\">\n                <label for=\"email\">Email</label>\n                <input class=\"format\" [(ngModel)]= \"email\"\n                    type=\"text\"\n                    name=\"email\"\n                    id=\"email\"\n                    placeholder=\"Enter email...\"\n                    required\n                />\n            </div>\n               \n            <button (click)=register() class=\"btn\">Join Chat</button>\n        </form>\n    </main>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"join-container\">\r\n    <header class=\"join-header\">\r\n        <h1><i class=\"fa fa-spinner\"></i> AnimeCord</h1>\r\n        <h3>Register</h3>\r\n    </header>\r\n    <main class=\"join-main\">\r\n        <form  >\r\n            <div class=\"form-group\">\r\n                <label for=\"username\">Username</label>\r\n                <input [(ngModel)]= \"username\"\r\n                    type=\"text\"\r\n                    name=\"username\"\r\n                    id=\"username\"\r\n                    placeholder=\"Enter username...\"\r\n                    required\r\n                />\r\n            </div>\r\n            \r\n            <div class=\"form-group\">\r\n                <label for=\"password\">Password</label>\r\n                <input class=\"format\" [(ngModel)]= \"password\"\r\n                    type=\"password\"\r\n                    name=\"password\"\r\n                    id=\"password\"\r\n                    placeholder=\"Enter password...\"\r\n                    required\r\n                />\r\n            </div>\r\n\r\n            <div class=\"form-group\">\r\n                <label for=\"email\">Email</label>\r\n                <input class=\"format\" [(ngModel)]= \"email\"\r\n                    type=\"text\"\r\n                    name=\"email\"\r\n                    id=\"email\"\r\n                    placeholder=\"Enter email...\"\r\n                    required\r\n                />\r\n            </div>\r\n               \r\n            <button (click)=register() class=\"btn\">Join Chat</button>\r\n        </form>\r\n    </main>\r\n</div>");
 
 /***/ }),
 
@@ -386,6 +386,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_register_register_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/register/register.component */ "./src/app/components/register/register.component.ts");
 /* harmony import */ var _components_home_home_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/home/home.component */ "./src/app/components/home/home.component.ts");
 /* harmony import */ var _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./services/auth-guard.service */ "./src/app/services/auth-guard.service.ts");
+/* harmony import */ var _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/profile/profile.component */ "./src/app/components/profile/profile.component.ts");
+
 
 
 
@@ -399,7 +401,8 @@ const routes = [
     { path: "chat", component: _components_chat_chat_component__WEBPACK_IMPORTED_MODULE_3__["ChatComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__["AuthGuardService"]] },
     { path: "login", component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"] },
     { path: "register", component: _components_register_register_component__WEBPACK_IMPORTED_MODULE_5__["RegisterComponent"] },
-    { path: "home", component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_6__["HomeComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__["AuthGuardService"]] }
+    { path: "home", component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_6__["HomeComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__["AuthGuardService"]] },
+    { path: "profile", component: _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_8__["ProfileComponent"], canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__["AuthGuardService"]] },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -486,6 +489,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./services/auth.service */ "./src/app/services/auth.service.ts");
 /* harmony import */ var _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./services/auth-guard.service */ "./src/app/services/auth-guard.service.ts");
 /* harmony import */ var _components_home_home_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/home/home.component */ "./src/app/components/home/home.component.ts");
+/* harmony import */ var _services_app_user_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./services/app-user.service */ "./src/app/services/app-user.service.ts");
+
 
 
 
@@ -528,7 +533,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             angular2_flash_messages__WEBPACK_IMPORTED_MODULE_4__["FlashMessagesService"],
             _services_validate_service__WEBPACK_IMPORTED_MODULE_13__["ValidateService"],
             _services_auth_service__WEBPACK_IMPORTED_MODULE_14__["AuthService"],
-            _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_15__["AuthGuardService"]
+            _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_15__["AuthGuardService"],
+            _services_app_user_service__WEBPACK_IMPORTED_MODULE_17__["AppUserService"]
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
     })
@@ -921,13 +927,90 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileComponent", function() { return ProfileComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angular2-flash-messages */ "./node_modules/angular2-flash-messages/module/index.js");
+/* harmony import */ var angular2_flash_messages__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angular2_flash_messages__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var src_app_services_app_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/app-user.service */ "./src/app/services/app-user.service.ts");
+/* harmony import */ var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var src_app_services_validate_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/validate.service */ "./src/app/services/validate.service.ts");
+
+
+
+
 
 
 let ProfileComponent = class ProfileComponent {
-    constructor() { }
+    constructor(authorizor, appUserService, flashMessage, validator) {
+        this.authorizor = authorizor;
+        this.appUserService = appUserService;
+        this.flashMessage = flashMessage;
+        this.validator = validator;
+        this.editActive = false;
+    }
     ngOnInit() {
+        const username = sessionStorage.getItem('username');
+        this.appUserService.getProfile(username).subscribe((data) => {
+            this.profileData = data;
+        }, err => {
+            console.log(err);
+            return false;
+        });
+    }
+    edit() {
+        this.editActive = true;
+    }
+    // Change password
+    applyChanges() {
+        const user = {
+            username: this.profileData.username,
+            password: this.currentPassword,
+            newPassword: this.newPassword
+        };
+        // Required fields
+        if (!this.validator.validatePassword1(user)) {
+            this.flashMessage.show("Please fill in all fields.", { cssClass: 'alert-danger', timeout: 3000 });
+            return false;
+        }
+        // New password format
+        if (!this.validator.validateNewPAssword(user.newPassword)) {
+            this.flashMessage.show("At least one number\nOne lowercase and one uppercase letter\nAt least six characters", { cssClass: 'alert-danger', timeout: 3000 });
+            this.currentPassword = undefined;
+            this.newPassword = undefined;
+            return false;
+        }
+        // Change Password
+        this.appUserService.upDatePassword(user).subscribe((data) => {
+            console.log("Update: " + data);
+            if (data) {
+                this.profileData = data;
+                this.flashMessage.show("Password successfully changed", { cssClass: 'alert-success', timeout: 3000 });
+                // Clear fields if successful
+                console.log("Password Change successful.");
+                this.currentPassword = undefined;
+                this.newPassword = undefined;
+                this.editActive = false;
+            }
+            else {
+                this.flashMessage.show("Current password did not match our records", { cssClass: 'alert-danger', timeout: 3000 });
+                this.currentPassword = undefined;
+                this.newPassword = undefined;
+            }
+        }, err => {
+            console.log(err);
+            return false;
+        });
+    }
+    cancel() {
+        this.currentPassword = undefined;
+        this.newPassword = undefined;
+        this.editActive = false;
     }
 };
+ProfileComponent.ctorParameters = () => [
+    { type: src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"] },
+    { type: src_app_services_app_user_service__WEBPACK_IMPORTED_MODULE_3__["AppUserService"] },
+    { type: angular2_flash_messages__WEBPACK_IMPORTED_MODULE_2__["FlashMessagesService"] },
+    { type: src_app_services_validate_service__WEBPACK_IMPORTED_MODULE_5__["ValidateService"] }
+];
 ProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-profile',
@@ -996,6 +1079,12 @@ let RegisterComponent = class RegisterComponent {
             this.flashMessage.show("Please fill in all fields.", { cssClass: 'alert-danger', timeout: 3000 });
             return false;
         }
+        // Password format
+        if (!this.validator.validateNewPAssword(user.password)) {
+            this.flashMessage.show("At least one number\nOne lowercase and one uppercase letter\nAt least six characters", { cssClass: 'alert-danger', timeout: 3000 });
+            this.password = undefined;
+            return false;
+        }
         // Validate email
         if (!this.validator.validateEmail(user.email)) {
             this.flashMessage.show("Please use a valid email.", { cssClass: 'alert-danger', timeout: 3000 });
@@ -1034,6 +1123,61 @@ RegisterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./register.component.css */ "./src/app/components/register/register.component.css")).default]
     })
 ], RegisterComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/app-user.service.ts":
+/*!**********************************************!*\
+  !*** ./src/app/services/app-user.service.ts ***!
+  \**********************************************/
+/*! exports provided: AppUserService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppUserService", function() { return AppUserService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+let AppUserService = class AppUserService {
+    constructor(http) {
+        this.http = http;
+        this.url = 'http://localhost:8083';
+    }
+    getProfile(username) {
+        this.loadToken();
+        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + this.authToken
+        });
+        return this.http.get(this.url + '/users/' + username, { headers: headers });
+    }
+    upDatePassword(user) {
+        this.loadToken();
+        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + this.authToken
+        });
+        return this.http.put(this.url + '/users/' + user.username, user, { headers: headers });
+    }
+    loadToken() {
+        const token = sessionStorage.getItem('id_token');
+        this.authToken = token;
+    }
+};
+AppUserService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+AppUserService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], AppUserService);
 
 
 
@@ -1117,6 +1261,7 @@ let AuthService = class AuthService {
         });
         return this.http.post(this.url + '/authenticate', user, { headers: headers });
     }
+    // Stroe user info after successful login
     storeUserData(token, username) {
         sessionStorage.setItem('id_token', token);
         sessionStorage.setItem('username', username);
@@ -1133,14 +1278,6 @@ let AuthService = class AuthService {
         //return tokenNotExpired('id_token');
         let user = sessionStorage.getItem('id_token');
         return !(user === null);
-    }
-    getProfile(username) {
-        this.loadToken();
-        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-            'Content-Type': 'application/json',
-            'Authorization': this.authToken
-        });
-        return this.http.get(this.url + '/users/' + username, { headers: headers });
     }
     loadToken() {
         const token = sessionStorage.getItem('id_token');
@@ -1177,7 +1314,8 @@ __webpack_require__.r(__webpack_exports__);
 let ValidateService = class ValidateService {
     constructor() { }
     validateRegister(user) {
-        if (user.email == undefined || user.username == undefined || user.password == undefined) {
+        if (user.email == undefined || user.email == '' || user.username == undefined
+            || user.username == '' || user.password == undefined || user.password == '') {
             return false;
         }
         else {
@@ -1187,6 +1325,20 @@ let ValidateService = class ValidateService {
     validateEmail(email) {
         const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
+    }
+    validatePassword1(user) {
+        if (user.password == undefined || user.password == '' || user.newPassword == undefined || user.newPassword == '') {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    validateNewPAssword(newPassword) {
+        // at least one number, one lowercase and one uppercase letter
+        // at least six characters
+        var re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+        return re.test(newPassword);
     }
 };
 ValidateService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
