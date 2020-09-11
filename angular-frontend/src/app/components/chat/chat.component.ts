@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
 import io from 'socket.io-client';
-import { ActivatedRoute } from '@angular/router';
-
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -23,19 +22,26 @@ export class ChatComponent implements OnInit, AfterViewInit {
   user: string;
   room: string;
 
-  constructor(private renderer:Renderer2, private activatedRoute: ActivatedRoute) { 
-    // Get patams we saved from user login
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.user = params['username'];
-      this.room = params['room'];
-  });
+  constructor(private router: Router, private renderer:Renderer2) { 
+    
+  }
+
+  ngOnInit() {
+    this.socket =  io("http://localhost:5000");
+    this.room = sessionStorage.getItem('room');
+    this.user = sessionStorage.getItem('username');
+    
+    if(!this.room) {
+      this.router.navigate(['home']);
+    }
+    
   }
 
   ngAfterViewInit() {
 
     // Join chat room
     this.socket.emit('joinRoom', {username:this.user, room:this.room});
-
+    
     // Get room and users
     this.socket.on('roomUsers', ({room, users}) => {
       this.outputRoomName(room);
@@ -70,11 +76,6 @@ export class ChatComponent implements OnInit, AfterViewInit {
     });
   
   }
-
-  ngOnInit() {
-    console.log("Username: " + this.user + " \nRoom: "+ this.room);
-    this.socket =  io("http://localhost:5000");
-  }
   
   // Output message to DOM
   outputMessage(message) {
@@ -107,8 +108,15 @@ export class ChatComponent implements OnInit, AfterViewInit {
     users.forEach(user=>{
       const li = this.renderer.createElement('li');
       li.innerText = user.username;
+      console.log(user.name)
       this.userList.nativeElement.appendChild(li);
     });
+  }
+
+  // Lets others in room know that user has left
+  leaveRoom() {
+    this.socket.emit('leave');
+    this.router.navigate(['home']);
   }
 
 }

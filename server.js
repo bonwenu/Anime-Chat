@@ -48,6 +48,21 @@ io.sockets.on("connection", (socket) => {
         io.sockets.to(user.room).emit('message', formatMessage(`${user.username}`, msg));
     });
 
+    // Update when user leaves a room 
+    socket.on('leave', () =>{
+        const user = userLeave(socket.id);
+
+        if(user) {
+            io.sockets.to(user.room).emit('message', formatMessage(botName, `${user.username} left the chat`));
+
+             // Send users and room info 
+            io.sockets.to(user.room).emit('roomUsers', {
+                room: user.room, 
+                users: getRoomUsers(user.room)
+            });
+        }   
+    });
+
     // Disconnect
     socket.on("disconnect", () => {
         const user = userLeave(socket.id);
