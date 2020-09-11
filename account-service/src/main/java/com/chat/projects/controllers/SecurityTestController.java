@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/api/secure")
-public class SecuredController {
+public class SecurityTestController {
 
     @GetMapping
     public ResponseEntity reachSecureEndpoint() {

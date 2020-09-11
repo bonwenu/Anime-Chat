@@ -1,7 +1,5 @@
 package com.chat.projects.controllers;
 
-import java.sql.SQLIntegrityConstraintViolationException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +9,7 @@ import com.chat.projects.models.Message;
 import com.chat.projects.services.ApplicationUserDetailsService;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 @RequestMapping("/users")
 public class UserController {
 	
@@ -42,5 +40,16 @@ public class UserController {
 	@GetMapping("/{username}")
 	public ApplicationUser getAccountByUsername(@PathVariable String username) {
 		return appUsertDetailsService.getAccountByUsername(username);
+	}
+	
+	@PutMapping("/{username}")
+	public ApplicationUser updateApplicationUser(@RequestBody ApplicationUser user) {
+		ApplicationUser appUser = appUsertDetailsService.getAccountByUsername(user.getUsername());
+		// If user is found and old password matches, save new one
+		if(appUser != null && bCryptPasswordEncoder.matches(user.getPassword(), appUser.getPassword())) {
+			appUser.setPassword(bCryptPasswordEncoder.encode(user.getNewPassword()));
+			return appUsertDetailsService.updateApplicationUser(appUser);
+		}
+		return null;
 	}
 }

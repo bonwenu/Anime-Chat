@@ -17,6 +17,7 @@ import { AuthService } from './services/auth.service';
 
 import { AuthGuardService } from './services/auth-guard.service';
 import { HomeComponent } from './components/home/home.component';
+import { AppUserService } from './services/app-user.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { HomeComponent } from './components/home/home.component';
     FlashMessagesService,
     ValidateService,
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    AppUserService
   ],
   bootstrap: [AppComponent]
 })

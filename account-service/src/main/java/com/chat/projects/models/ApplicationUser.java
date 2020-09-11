@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 
 @Entity
@@ -17,8 +18,18 @@ public class ApplicationUser {
     private String password;
     @Column(unique = true)
     private String email;
+    @Transient
+    private String newPassword;
 
-    public long getId() {
+    public String getNewPassword() {
+		return newPassword;
+	}
+
+	public void setNewPassword(String newPassword) {
+		this.newPassword = newPassword;
+	}
+
+	public long getId() {
         return id;
     }
 
@@ -49,6 +60,10 @@ public class ApplicationUser {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-    
-    
+
+	@Override
+	public String toString() {
+		return "ApplicationUser [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email
+				+ ", newPassword=" + newPassword + "]";
+	}
 }

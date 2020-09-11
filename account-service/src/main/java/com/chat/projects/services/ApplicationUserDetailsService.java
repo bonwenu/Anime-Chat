@@ -35,4 +35,8 @@ public class ApplicationUserDetailsService implements UserDetailsService {
     public ApplicationUser getAccountByUsername(String username) {
     	return applicationUserRepository.findByUsername(username);
     }
+    
+    public ApplicationUser updateApplicationUser(ApplicationUser user) {
+    	return applicationUserRepository.save(user);
+    }
 }

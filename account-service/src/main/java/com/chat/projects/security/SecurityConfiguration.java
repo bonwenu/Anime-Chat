@@ -39,7 +39,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.authorizeRequests().antMatchers("/authenticate").permitAll()
 				.antMatchers("/users/register").permitAll()
 				// All other requests need to be authenticated
-				.anyRequest().authenticated().and()
+				.anyRequest().authenticated().and().cors().and()
 				// Make sure we use stateless session
 				.sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);

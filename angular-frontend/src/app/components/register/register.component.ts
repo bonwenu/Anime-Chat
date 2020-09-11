@@ -37,6 +37,13 @@ export class RegisterComponent implements OnInit {
       return false;
     }
 
+    // Password format
+    if(!this.validator.validateNewPAssword(user.password)) {
+      this.flashMessage.show("At least one number\nOne lowercase and one uppercase letter\nAt least six characters", {cssClass: 'alert-danger', timeout: 3000});
+      this.password = undefined;
+      return false;
+    }
+
     // Validate email
     if(!this.validator.validateEmail(user.email)) {
       this.flashMessage.show("Please use a valid email.", {cssClass: 'alert-danger', timeout: 3000});
