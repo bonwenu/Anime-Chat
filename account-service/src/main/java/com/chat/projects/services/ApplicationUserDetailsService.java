@@ -1,6 +1,7 @@
 package com.chat.projects.services;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,11 +15,9 @@ import static java.util.Collections.emptyList;
 
 @Service
 public class ApplicationUserDetailsService implements UserDetailsService {
-    private ApplicationUserRepository applicationUserRepository;
-
-    public ApplicationUserDetailsService(ApplicationUserRepository applicationUserRepository) {
-        this.applicationUserRepository = applicationUserRepository;
-    }
+    
+	@Autowired
+	private ApplicationUserRepository applicationUserRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -27,5 +26,17 @@ public class ApplicationUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException(username);
         }
         return new User(applicationUser.getUsername(), applicationUser.getPassword(), emptyList());
+    }
+    
+    public ApplicationUser createUser(ApplicationUser user) {
+    	return applicationUserRepository.save(user);
+    }
+    
+    public ApplicationUser getAccountByUsername(String username) {
+    	return applicationUserRepository.findByUsername(username);
+    }
+    
+    public ApplicationUser updateApplicationUser(ApplicationUser user) {
+    	return applicationUserRepository.save(user);
     }
 }

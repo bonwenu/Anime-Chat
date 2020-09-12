@@ -5,25 +5,53 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import com.chat.projects.models.ApplicationUser;
-import com.chat.projects.repositories.ApplicationUserRepository;
+import com.chat.projects.models.Message;
+import com.chat.projects.services.ApplicationUserDetailsService;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/users")
 public class UserController {
-
+	
 	@Autowired
-    private ApplicationUserRepository applicationUserRepository;
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-    public UserController(ApplicationUserRepository applicationUserRepository,
-                          BCryptPasswordEncoder bCryptPasswordEncoder) {
-        this.applicationUserRepository = applicationUserRepository;
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-    }
-
-    @PostMapping("/register")
-    public void signUp(@RequestBody ApplicationUser user) {
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
+	@Autowired
+	ApplicationUserDetailsService appUsertDetailsService;
+	
+	@PostMapping("/register")
+    public Message signUp(@RequestBody ApplicationUser user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        applicationUserRepository.save(user);
+        boolean isValid = false;
+        try {
+	        ApplicationUser au = appUsertDetailsService.createUser(user);
+	        
+	        if(au != null) {
+	        	isValid = true;
+	        	return new Message(isValid, "User was successfuly registered");
+	        }
+        }
+        catch(Exception e) {
+        	System.out.println(e);
+        }
+        return new Message(isValid, "This username or email already exists.");
     }
+	
+	@GetMapping("/{username}")
+	public ApplicationUser getAccountByUsername(@PathVariable String username) {
+		return appUsertDetailsService.getAccountByUsername(username);
+	}
+	
+	@PutMapping("/{username}")
+	public ApplicationUser updateApplicationUser(@RequestBody ApplicationUser user) {
+		ApplicationUser appUser = appUsertDetailsService.getAccountByUsername(user.getUsername());
+		
+		// If user is found and old password matches, save new one
+		if(appUser != null && bCryptPasswordEncoder.matches(user.getPassword(), appUser.getPassword())) {
+			appUser.setPassword(bCryptPasswordEncoder.encode(user.getNewPassword()));
+			// Password change was successful
+			return appUsertDetailsService.updateApplicationUser(appUser);
+		}
+		return null;
+	}
 }
