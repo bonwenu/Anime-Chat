@@ -582,7 +582,8 @@ let ChatComponent = class ChatComponent {
         this.renderer = renderer;
     }
     ngOnInit() {
-        this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_2___default()("http://localhost:5000");
+        //this.socket =  io("http://localhost:5000");
+        this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_2___default()("http://3.137.105.70:5000");
         this.room = sessionStorage.getItem('room');
         this.user = sessionStorage.getItem('username');
         if (!this.room) {
@@ -599,7 +600,6 @@ let ChatComponent = class ChatComponent {
         });
         // Message from server
         this.socket.on('message', (message) => {
-            console.log(message);
             this.outputMessage(message);
             // Scroll down
             this.chatMessages.nativeElement.scrollTop = this.chatMessages.nativeElement.scrollHeight;
@@ -644,7 +644,6 @@ let ChatComponent = class ChatComponent {
         users.forEach(user => {
             const li = this.renderer.createElement('li');
             li.innerText = user.username;
-            console.log(user.name);
             this.userList.nativeElement.appendChild(li);
         });
     }
@@ -791,13 +790,11 @@ let LoginComponent = class LoginComponent {
         }
     }
     checkLogin() {
-        console.log("Login clicked.");
         const user = {
             username: this.username,
             password: this.password
         };
         this.authorizor.authenticatedUser(user).subscribe((data) => {
-            console.log("Data is " + data);
             if (data.jwt) {
                 this.authorizor.storeUserData(data.jwt, this.username);
                 this.flashMessage.show('You are now logged in!', {
@@ -1091,13 +1088,11 @@ let RegisterComponent = class RegisterComponent {
             return false;
         }
         // Clear fields if successful
-        console.log("Registration successful.");
         this.email = undefined;
         this.username = undefined;
         this.password = undefined;
         // Register user
         this.authorizor.registerUser(user).subscribe((data) => {
-            console.log(data.success);
             if (data.success) {
                 this.flashMessage.show("You are now registered and can log in.", { cssClass: 'alert-success', timeout: 3000 });
                 setTimeout(() => {
@@ -1147,7 +1142,8 @@ __webpack_require__.r(__webpack_exports__);
 let AppUserService = class AppUserService {
     constructor(http) {
         this.http = http;
-        this.url = 'http://localhost:8083';
+        // url:string = 'http://localhost:8083';
+        this.url = 'http://18.221.171.201:8083';
     }
     getProfile(username) {
         this.loadToken();
@@ -1247,7 +1243,8 @@ __webpack_require__.r(__webpack_exports__);
 let AuthService = class AuthService {
     constructor(http) {
         this.http = http;
-        this.url = 'http://localhost:8083';
+        // url:string = 'http://localhost:8083';
+        this.url = 'http://18.221.171.201:8083';
     }
     registerUser(user) {
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({

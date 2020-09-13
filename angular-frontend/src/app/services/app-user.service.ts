@@ -5,7 +5,8 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 })
 export class AppUserService {
   authToken: any;
-  url:string = 'http://localhost:8083'
+  // url:string = 'http://localhost:8083';
+  url:string = 'http://18.221.171.201:8083';
 
   constructor(private http: HttpClient) { }
 

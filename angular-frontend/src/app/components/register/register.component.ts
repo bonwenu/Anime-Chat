@@ -50,14 +50,12 @@ export class RegisterComponent implements OnInit {
       return false;
     }
     // Clear fields if successful
-    console.log("Registration successful.");
     this.email = undefined;
     this.username = undefined;
     this.password = undefined;
 
     // Register user
     this.authorizor.registerUser(user).subscribe((data:any) => {
-      console.log(data.success);
       if(data.success) {
         this.flashMessage.show("You are now registered and can log in.", {cssClass: 'alert-success', timeout: 3000});
         setTimeout(() => {

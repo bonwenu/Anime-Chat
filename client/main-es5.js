@@ -1181,7 +1181,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(ChatComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_2___default()("http://localhost:5000");
+          //this.socket =  io("http://localhost:5000");
+          this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_2___default()("http://3.137.105.70:5000");
           this.room = sessionStorage.getItem('room');
           this.user = sessionStorage.getItem('username');
 
@@ -1210,8 +1211,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }); // Message from server
 
           this.socket.on('message', function (message) {
-            console.log(message);
-
             _this.outputMessage(message); // Scroll down
 
 
@@ -1270,7 +1269,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var li = _this2.renderer.createElement('li');
 
             li.innerText = user.username;
-            console.log(user.name);
 
             _this2.userList.nativeElement.appendChild(li);
           });
@@ -1519,14 +1517,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function checkLogin() {
           var _this3 = this;
 
-          console.log("Login clicked.");
           var user = {
             username: this.username,
             password: this.password
           };
           this.authorizor.authenticatedUser(user).subscribe(function (data) {
-            console.log("Data is " + data);
-
             if (data.jwt) {
               _this3.authorizor.storeUserData(data.jwt, _this3.username);
 
@@ -2036,14 +2031,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           } // Clear fields if successful
 
 
-          console.log("Registration successful.");
           this.email = undefined;
           this.username = undefined;
           this.password = undefined; // Register user
 
           this.authorizor.registerUser(user).subscribe(function (data) {
-            console.log(data.success);
-
             if (data.success) {
               _this6.flashMessage.show("You are now registered and can log in.", {
                 cssClass: 'alert-success',
@@ -2132,8 +2124,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function AppUserService(http) {
         _classCallCheck(this, AppUserService);
 
-        this.http = http;
-        this.url = 'http://localhost:8083';
+        this.http = http; // url:string = 'http://localhost:8083';
+
+        this.url = 'http://18.221.171.201:8083';
       }
 
       _createClass(AppUserService, [{
@@ -2304,8 +2297,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function AuthService(http) {
         _classCallCheck(this, AuthService);
 
-        this.http = http;
-        this.url = 'http://localhost:8083';
+        this.http = http; // url:string = 'http://localhost:8083';
+
+        this.url = 'http://18.221.171.201:8083';
       }
 
       _createClass(AuthService, [{
