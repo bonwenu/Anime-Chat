@@ -25,15 +25,12 @@ export class LoginComponent implements OnInit {
 
   checkLogin() {
 
-    console.log("Login clicked.");
-
     const user = {
       username: this.username,
       password: this.password
     }
 
     this.authorizor.authenticatedUser(user).subscribe((data:any) => {
-      console.log("Data is " +data);
       if(data.jwt) {
         this.authorizor.storeUserData(data.jwt, this.username);
         this.flashMessage.show('You are now logged in!', {

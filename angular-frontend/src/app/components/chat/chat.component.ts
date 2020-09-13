@@ -27,7 +27,8 @@ export class ChatComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.socket =  io("http://localhost:5000");
+    //this.socket =  io("http://localhost:5000");
+    this.socket =  io("http://3.137.105.70:5000");
     this.room = sessionStorage.getItem('room');
     this.user = sessionStorage.getItem('username');
     
@@ -50,7 +51,6 @@ export class ChatComponent implements OnInit, AfterViewInit {
 
     // Message from server
     this.socket.on('message', (message) => {
-      console.log(message);
       this.outputMessage(message);
 
       // Scroll down
@@ -108,7 +108,6 @@ export class ChatComponent implements OnInit, AfterViewInit {
     users.forEach(user=>{
       const li = this.renderer.createElement('li');
       li.innerText = user.username;
-      console.log(user.name)
       this.userList.nativeElement.appendChild(li);
     });
   }
