@@ -1,6 +1,6 @@
+drop schema if exists ac_account;
 create schema ac_account;
 use ac_account;
-drop table if exists application_user;
 
 create table application_user (
        id bigint not null auto_increment,
