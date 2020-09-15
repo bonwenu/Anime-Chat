@@ -580,6 +580,11 @@ let ChatComponent = class ChatComponent {
     constructor(router, renderer) {
         this.router = router;
         this.renderer = renderer;
+        this.router.events.subscribe(event => {
+            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_3__["NavigationStart"]) {
+                this.socket.emit('leave');
+            }
+        });
     }
     ngOnInit() {
         //this.socket =  io("http://localhost:5000");
@@ -649,7 +654,6 @@ let ChatComponent = class ChatComponent {
     }
     // Lets others in room know that user has left
     leaveRoom() {
-        this.socket.emit('leave');
         this.router.navigate(['home']);
     }
 };
