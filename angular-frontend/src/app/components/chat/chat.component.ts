@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
 import io from 'socket.io-client';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 
 
 @Component({
@@ -23,7 +23,12 @@ export class ChatComponent implements OnInit, AfterViewInit {
   room: string;
 
   constructor(private router: Router, private renderer:Renderer2) { 
-    
+    // Call leave when user leaves /chat url
+    this.router.events.subscribe(event =>{
+      if (event instanceof NavigationStart){
+        this.socket.emit('leave');
+      }
+   })
   }
 
   ngOnInit() {
@@ -114,7 +119,6 @@ export class ChatComponent implements OnInit, AfterViewInit {
 
   // Lets others in room know that user has left
   leaveRoom() {
-    this.socket.emit('leave');
     this.router.navigate(['home']);
   }
 

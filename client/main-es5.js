@@ -1172,10 +1172,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var ChatComponent = /*#__PURE__*/function () {
       function ChatComponent(router, renderer) {
+        var _this = this;
+
         _classCallCheck(this, ChatComponent);
 
         this.router = router;
         this.renderer = renderer;
+        this.router.events.subscribe(function (event) {
+          if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_3__["NavigationStart"]) {
+            _this.socket.emit('leave');
+          }
+        });
       }
 
       _createClass(ChatComponent, [{
@@ -1193,7 +1200,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
-          var _this = this;
+          var _this2 = this;
 
           // Join chat room
           this.socket.emit('joinRoom', {
@@ -1205,21 +1212,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var room = _ref.room,
                 users = _ref.users;
 
-            _this.outputRoomName(room);
+            _this2.outputRoomName(room);
 
-            _this.outputUsers(users);
+            _this2.outputUsers(users);
           }); // Message from server
 
           this.socket.on('message', function (message) {
-            _this.outputMessage(message); // Scroll down
+            _this2.outputMessage(message); // Scroll down
 
 
-            _this.chatMessages.nativeElement.scrollTop = _this.chatMessages.nativeElement.scrollHeight;
+            _this2.chatMessages.nativeElement.scrollTop = _this2.chatMessages.nativeElement.scrollHeight;
           });
           this.chatForm.nativeElement.addEventListener('submit', function (event) {
             event.preventDefault(); // Get message text
 
-            var msg = _this.msg.nativeElement.value;
+            var msg = _this2.msg.nativeElement.value;
             msg = msg.trim();
 
             if (!msg) {
@@ -1227,12 +1234,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             } // Emit message to server
 
 
-            _this.socket.emit('chatMessage', msg); // Clear input
+            _this2.socket.emit('chatMessage', msg); // Clear input
 
 
-            _this.msg.nativeElement.value = "";
+            _this2.msg.nativeElement.value = "";
 
-            _this.msg.nativeElement.focus();
+            _this2.msg.nativeElement.focus();
           });
         } // Output message to DOM
 
@@ -1262,22 +1269,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "outputUsers",
         value: function outputUsers(users) {
-          var _this2 = this;
+          var _this3 = this;
 
           this.userList.nativeElement.innerHTML = '';
           users.forEach(function (user) {
-            var li = _this2.renderer.createElement('li');
+            var li = _this3.renderer.createElement('li');
 
             li.innerText = user.username;
 
-            _this2.userList.nativeElement.appendChild(li);
+            _this3.userList.nativeElement.appendChild(li);
           });
         } // Lets others in room know that user has left
 
       }, {
         key: "leaveRoom",
         value: function leaveRoom() {
-          this.socket.emit('leave');
           this.router.navigate(['home']);
         }
       }]);
@@ -1515,7 +1521,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "checkLogin",
         value: function checkLogin() {
-          var _this3 = this;
+          var _this4 = this;
 
           var user = {
             username: this.username,
@@ -1523,22 +1529,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           };
           this.authorizor.authenticatedUser(user).subscribe(function (data) {
             if (data.jwt) {
-              _this3.authorizor.storeUserData(data.jwt, _this3.username);
+              _this4.authorizor.storeUserData(data.jwt, _this4.username);
 
-              _this3.flashMessage.show('You are now logged in!', {
+              _this4.flashMessage.show('You are now logged in!', {
                 cssClass: 'alert-success',
                 timeout: 3500
               });
 
-              _this3.router.navigate(['home']);
+              _this4.router.navigate(['home']);
             } else {
-              _this3.flashMessage.show("Incorrect credentials", {
+              _this4.flashMessage.show("Incorrect credentials", {
                 cssClass: 'alert-danger',
                 timeout: 3000
               });
 
-              _this3.username = "";
-              _this3.password = "";
+              _this4.username = "";
+              _this4.password = "";
             }
           });
         }
@@ -1786,11 +1792,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(ProfileComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this4 = this;
+          var _this5 = this;
 
           var username = sessionStorage.getItem('username');
           this.appUserService.getProfile(username).subscribe(function (data) {
-            _this4.profileData = data;
+            _this5.profileData = data;
           }, function (err) {
             console.log(err);
             return false;
@@ -1805,7 +1811,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "applyChanges",
         value: function applyChanges() {
-          var _this5 = this;
+          var _this6 = this;
 
           var user = {
             username: this.profileData.username,
@@ -1837,26 +1843,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             console.log("Update: " + data);
 
             if (data) {
-              _this5.profileData = data;
+              _this6.profileData = data;
 
-              _this5.flashMessage.show("Password successfully changed", {
+              _this6.flashMessage.show("Password successfully changed", {
                 cssClass: 'alert-success',
                 timeout: 3000
               }); // Clear fields if successful
 
 
               console.log("Password Change successful.");
-              _this5.currentPassword = undefined;
-              _this5.newPassword = undefined;
-              _this5.editActive = false;
+              _this6.currentPassword = undefined;
+              _this6.newPassword = undefined;
+              _this6.editActive = false;
             } else {
-              _this5.flashMessage.show("Current password did not match our records", {
+              _this6.flashMessage.show("Current password did not match our records", {
                 cssClass: 'alert-danger',
                 timeout: 3000
               });
 
-              _this5.currentPassword = undefined;
-              _this5.newPassword = undefined;
+              _this6.currentPassword = undefined;
+              _this6.newPassword = undefined;
             }
           }, function (err) {
             console.log(err);
@@ -1995,7 +2001,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "register",
         value: function register() {
-          var _this6 = this;
+          var _this7 = this;
 
           var user = {
             username: this.username,
@@ -2037,16 +2043,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.authorizor.registerUser(user).subscribe(function (data) {
             if (data.success) {
-              _this6.flashMessage.show("You are now registered and can log in.", {
+              _this7.flashMessage.show("You are now registered and can log in.", {
                 cssClass: 'alert-success',
                 timeout: 3000
               });
 
               setTimeout(function () {
-                _this6.router.navigate(['/login']);
+                _this7.router.navigate(['/login']);
               }, 3000);
             } else {
-              _this6.flashMessage.show(data.message, {
+              _this7.flashMessage.show(data.message, {
                 cssClass: 'alert-danger',
                 timeout: 3000
               });
