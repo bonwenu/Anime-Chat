@@ -3,7 +3,6 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { AppUserService } from 'src/app/services/app-user.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { ValidateService } from 'src/app/services/validate.service';
-import { isUndefined } from 'util';
 
 @Component({
   selector: 'app-profile',
